@@ -102,14 +102,15 @@ app.get("/auth/faceit", (req, res) => {
     });
 
     const params = new URLSearchParams({
-        client_id: process.env.FACEIT_CLIENT_ID,
-        redirect_uri: process.env.REDIRECT_URI,
-        response_type: "code",
-        scope: "openid",
-        state,
-        code_challenge: codeChallenge,
-        code_challenge_method: "S256"
-    });
+    client_id: process.env.FACEIT_CLIENT_ID,
+    redirect_uri: process.env.REDIRECT_URI,
+    response_type: "code",
+    scope: "openid",
+    state,
+    code_challenge: codeChallenge,
+    code_challenge_method: "S256",
+    redirect_popup: "true"
+});
 
     const url =
         `https://accounts.faceit.com?${params.toString()}`;
