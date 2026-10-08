@@ -208,25 +208,10 @@ app.get("/callback", async (req, res) => {
 // HTTPS SERVER
 // =========================
 
-const attrs = [
-    {
-        name: "commonName",
-        value: "localhost"
-    }
-];
+const PORT = process.env.PORT || 3000;
 
-const pems = selfsigned.generate(attrs, {
-    days: 365
-});
-
-https.createServer(
-    {
-        key: pems.private,
-        cert: pems.cert
-    },
-    app
-).listen(3000, () => {
-    console.log("🔒 HTTPS: https://localhost:3000");
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🌐 Serwer działa na porcie ${PORT}`);
 });
 
 client.login(process.env.DISCORD_TOKEN);
