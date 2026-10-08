@@ -61,7 +61,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
     if (interaction.commandName === "verify") {
         const authUrl =
-            `https://localhost:3000/auth/faceit?discord_id=${interaction.user.id}`;
+            `https://orly-faceit-bot.onrender.com/auth/faceit?discord_id=${interaction.user.id}`;
 
         const row = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
